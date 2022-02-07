@@ -3,8 +3,6 @@ from  grid import  *
 pygame.init()
 
 bg()
-boundaries()
-XO()
 fps = 90
 clock = pygame.time.Clock()
 run = True
@@ -23,8 +21,9 @@ while run:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouseX = event.pos[0]
             mouseY = event.pos[1]
-            click_row = int(mouseY // 300)
-            click_col = int(mouseX // 250)
+            click_row = int(mouseY // 250)
+            click_col = int(mouseX // 300)
+
 
             if available_square(click_row, click_col):
                 if player == 1:
@@ -33,8 +32,13 @@ while run:
                 elif player == 2:
                     mark_square(click_row, click_col, 2)
                     player = 1
-
+                XO()
+                print(click_row , click_col)
+                print(mouseY , mouseX)
+                print()
                 print(board)
+                print()
+                print()
 
 
 

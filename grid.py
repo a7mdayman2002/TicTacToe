@@ -14,29 +14,29 @@ def bg():
     screen.fill(BG_color)
 
 #horizontal lines
-    pygame.draw.line(screen, new_color, (0, 350), (width, 350), 15)
-    pygame.draw.line(screen, new_color, (0, 550), (width, 550), 15)
+    hl1 = pygame.draw.line(screen, new_color, (0, height - 500), (width, height - 500), 15)
+    hl2 = pygame.draw.line(screen, new_color, (0, height - 250), (width, height - 250), 15)
 #vertical lines
-    pygame.draw.line(screen, new_color, (width - 600, 150), (width - 600, height - 5), 15)
-    pygame.draw.line(screen, new_color, (width - 300, 150), (width - 300, height - 5), 15)
+    vl1 = pygame.draw.line(screen, new_color, (width - 600, 0), (width - 600, height), 15)
+    vl2 = pygame.draw.line(screen, new_color, (width - 300, 0), (width - 300, height), 15)
 
 
-def boundaries():
-#box horizontal boundaries
-    pygame.draw.line(screen, new_color, (10, 150), (width, 150), 15)
-    pygame.draw.line(screen, new_color, (10, height - 5), (width, height - 5), 15)
-# box vertical boundaries
-    pygame.draw.line(screen, new_color, (0, 150), (0, height - 5), 20)
-    pygame.draw.line(screen, new_color, (width, 150), (width, height - 5), 20)
 
 def XO():
 	for row in range(board_row):
 		for col in range(board_col):
 			if board[row][col] == 1:
-				pygame.draw.circle( screen, Red,(10, 60), (30, 100), 5,20 )
+				pygame.draw.line(screen, Red, ((col * 300 + 150), (row * 250 + 250 - 200)),((col * 300 + 300 - 200), (row * 250 + 175)), 10)
+				pygame.draw.line(screen, Red, ((col * 300 + 300 - 200), (row * 250 + 250 - 200)), ((col * 300 + 150), (row * 250 + 175)), 10)
+
+
+
+
 			elif board[row][col] == 2:
-				pygame.draw.line(screen, Red, (10, 60), (30, 100), 10)
-				pygame.draw.line(screen, Red, (10, 60), (30, 100), 10)
+				pygame.draw.circle(screen, Red, (int(col * 300 + 150), int(row * 250 + 125)), 50, 10)
+
+
+
 
 def mark_square(row, col, player):
     board[row][col] = player
@@ -54,9 +54,4 @@ def is_board_full():
 				return False
 
 	return True
-
-
-
-
-
 
