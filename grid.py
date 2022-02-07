@@ -1,4 +1,3 @@
-from random import randint
 import numpy as np
 import pygame
 
@@ -6,24 +5,12 @@ width, height = 900, 750
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Ahmed's Tic Tac Toc")
 
-
-Red = (94, 3, 16)
+Red = (255, 0, 0)
 white = (255, 255, 255)
 purple = (129, 9, 107)
 green = (50, 150, 20)
-Old_BG_color = (28, 110, 96)
-Old_line_color = (23, 135, 145)
-New_BG_color1 = (118, 110, 96)
-New_Line_color2 = (153, 135, 145)
-denmark_Bg , denmark_lines = (154, 25, 24) , (225, 156, 165)
-unkown1 , Unkown1 = (191, 144, 247) , (58, 58, 142)
-unkown2 , Unkown2 = (26, 72, 195) , (22, 215, 233)
-unkown3 , Unkown3 = (68, 33, 36) , (57, 176, 155)
-blue_BG ,blue_line =(37, 35, 99) , (42, 72, 171)
-pink_line = (162, 87, 155)
-New_BG_color = (randint(0, 180), randint(0, 180), randint(0, 180))
-New_Line_color = (randint(0, 180), randint(0, 180), randint(0, 180))
-print(New_BG_color , ",", New_Line_color)
+New_BG_color = (75,75,75)
+New_Line_color = (23, 135, 145)
 
 board_row, board_col = 3, 3
 board = np.zeros((board_row, board_col))
@@ -32,12 +19,12 @@ board = np.zeros((board_row, board_col))
 def bg():
     screen.fill(New_BG_color)
 
-    # horizontal lines
-    hl1 = pygame.draw.line(screen, New_Line_color, (0, height - 500), (width, height - 500), 15)
-    hl2 = pygame.draw.line(screen, New_Line_color, (0, height - 250), (width, height - 250), 15)
-    # vertical lines
-    vl1 = pygame.draw.line(screen, New_Line_color, (width - 600, 0), (width - 600, height), 15)
-    vl2 = pygame.draw.line(screen, New_Line_color, (width - 300, 0), (width - 300, height), 15)
+# horizontal lines
+    pygame.draw.line(screen, New_Line_color, (0, height - 500), (width, height - 500), 15)
+    pygame.draw.line(screen, New_Line_color, (0, height - 250), (width, height - 250), 15)
+# vertical lines
+    pygame.draw.line(screen, New_Line_color, (width - 600, 0), (width - 600, height), 15)
+    pygame.draw.line(screen, New_Line_color, (width - 300, 0), (width - 300, height), 15)
 
 
 def Xo():
@@ -57,10 +44,6 @@ def mark_square(row, col, player):
     board[row][col] = player
 
 
-def mark_square(row, col, player):
-    board[row][col] = player
-
-
 def available_square(row, col):
     return board[row][col] == 0
 
@@ -70,7 +53,6 @@ def is_board_full():
         for col in range(board_col):
             if board[row][col] == 0:
                 return False
-
     return True
 
 
