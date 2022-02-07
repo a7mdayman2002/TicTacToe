@@ -1,19 +1,14 @@
-import pygame
-
-from  grid import  *
+from grid import *
 
 pygame.init()
 
 bg()
-
 player = 1
 fps = 90
 clock = pygame.time.Clock()
 run = True
 game_over = False
 while run:
-
-
     clock.tick(fps)
 
     for event in pygame.event.get():
@@ -33,7 +28,6 @@ while run:
             click_row = int(mouseY // 250)
             click_col = int(mouseX // 300)
 
-
             if available_square(click_row, click_col):
                 if player == 1:
                     mark_square(click_row, click_col, 1)
@@ -45,7 +39,7 @@ while run:
                     if check_win(player) == True:
                         game_over = True
                     player = 1
-
     Xo()
     pygame.display.update()
+
 pygame.quit()
