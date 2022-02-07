@@ -12,6 +12,7 @@ new_color = (23, 135, 145)
 board_row, board_col = 3, 3
 board = np.zeros((board_row, board_col))
 
+
 def bg():
     screen.fill(BG_color)
 
@@ -24,7 +25,7 @@ def bg():
 
 
 
-def XO():
+def Xo():
 	for row in range(board_row):
 		for col in range(board_col):
 			if board[row][col] == 1:
@@ -57,4 +58,58 @@ def is_board_full():
 				return False
 
 	return True
+
+def horizontal_line(col,player):
+	PosY = col * 300 + 150
+	if player == 1:
+		color = Red
+	elif player == 2:
+		color = white
+	pygame.draw.line(screen, color, (PosY, 15), (PosY, height-15), 10)
+
+def vertical_line(row, player):
+	PosX = row * 250 + 125
+	if player == 1:
+		color = Red
+	elif player == 2:
+		color = white
+	pygame.draw.line(screen, color, (15, PosX), (width - 15, PosX), 10)
+
+def diagonal1(player):
+	if player == 1:
+		color = Red
+	elif player == 2:
+		color = white
+	pygame.draw.line(screen, color, (15, 15), (width - 15, height - 15), 10)
+
+def diagonal2(player):
+	if player == 1:
+		color = Red
+	elif player == 2:
+		color = white
+	pygame.draw.line(screen, color, (15, height - 15), (width, 15), 10)
+
+def check_win(player):
+	for row in range(board_row):
+		if board[row][0] == board[row][1] == board[row][2] == player:
+			vertical_line(row, player)
+			return True
+	for col in range(board_col):
+		if board[0][col] == board[1][col] == board[2][col] == player:
+			horizontal_line(col, player)
+			return True
+	if board[0][0] == board[1][1] == board[2][2] == player:
+		diagonal1(player)
+		return  True
+	if board[0][2] == board[1][1] == board[2][0] == player:
+		diagonal2(player)
+		return  True
+	return  False
+
+def restart():
+	bg()
+	Xo()
+	for row in range(board_row):
+		for col in range(board_col):
+			board[row][col] = 0
 
