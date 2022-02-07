@@ -33,12 +33,7 @@ while run:
                     mark_square(click_row, click_col, 2)
                     player = 1
                 XO()
-                print(click_row , click_col)
-                print(mouseY , mouseX)
-                print()
-                print(board)
-                print()
-                print()
+
 
 
 

@@ -5,6 +5,8 @@ width, height = 900, 750
 screen = pygame.display.set_mode((width, height))
 
 Red = (255, 0, 0)
+white = (255,255,255)
+purple = (100,0,100)
 BG_color = (28, 110, 96)
 new_color = (23, 135, 145)
 board_row, board_col = 3, 3
@@ -26,6 +28,7 @@ def XO():
 	for row in range(board_row):
 		for col in range(board_col):
 			if board[row][col] == 1:
+
 				pygame.draw.line(screen, Red, ((col * 300 + 150), (row * 250 + 250 - 200)),((col * 300 + 300 - 200), (row * 250 + 175)), 10)
 				pygame.draw.line(screen, Red, ((col * 300 + 300 - 200), (row * 250 + 250 - 200)), ((col * 300 + 150), (row * 250 + 175)), 10)
 
@@ -33,7 +36,7 @@ def XO():
 
 
 			elif board[row][col] == 2:
-				pygame.draw.circle(screen, Red, (int(col * 300 + 150), int(row * 250 + 125)), 50, 10)
+				pygame.draw.circle(screen, white, (int(col * 300 + 150), int(row * 250 + 125)), 50, 10)
 
 
 
