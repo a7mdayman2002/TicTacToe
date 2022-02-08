@@ -3,7 +3,7 @@ import pygame
 
 width, height = 900, 750
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Ahmed's Tic Tac Toc")
+pygame.display.set_caption("Ahmed's Tic Tac Toe")
 
 Red = (255, 0, 0)
 white = (255, 255, 255)
