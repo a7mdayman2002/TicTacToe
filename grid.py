@@ -56,7 +56,7 @@ def is_board_full():
     return True
 
 
-def horizontal_line(col, player):
+def vertical_line(col, player):
     PosY = col * 300 + 150
     if player == 1:
         color = purple
@@ -65,7 +65,7 @@ def horizontal_line(col, player):
     pygame.draw.line(screen, color, (PosY, 15), (PosY, height - 15), 10)
 
 
-def vertical_line(row, player):
+def horizontal_line(row, player):
     PosX = row * 250 + 125
     if player == 1:
         color = purple
@@ -92,13 +92,16 @@ def diagonal2(player):
 
 def check_win(player):
     for row in range(board_row):
-        if board[row][0] == board[row][1] == board[row][2] == player:
-            vertical_line(row, player)
-            return True
-    for col in range(board_col):
-        if board[0][col] == board[1][col] == board[2][col] == player:
-            horizontal_line(col, player)
-            return True
+        for col in range(board_col):
+            if board[row][0] == board[row][1] == board[row][2] == player:
+                horizontal_line(col, player)
+                return True
+            elif board[0][col] == board[1][col] == board[2][col] == player:
+                vertical_line(row, player)
+                return True
+
+
+
     if board[0][0] == board[1][1] == board[2][2] == player:
         diagonal1(player)
         return True
