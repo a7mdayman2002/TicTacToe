@@ -9,22 +9,22 @@ Red = (255, 0, 0)
 white = (255, 255, 255)
 purple = (129, 9, 107)
 green = (50, 150, 20)
-New_BG_color = (75,75,75)
-New_Line_color = (23, 135, 145)
+BG_color = (75, 75, 75)
+Line_color = (23, 135, 145)
 
 board_row, board_col = 3, 3
 board = np.zeros((board_row, board_col))
 
 
 def bg():
-    screen.fill(New_BG_color)
+    screen.fill(BG_color)
 
 # horizontal lines
-    pygame.draw.line(screen, New_Line_color, (0, height - 500), (width, height - 500), 15)
-    pygame.draw.line(screen, New_Line_color, (0, height - 250), (width, height - 250), 15)
+    pygame.draw.line(screen, Line_color, (0, height - 500), (width, height - 500), 15)
+    pygame.draw.line(screen, Line_color, (0, height - 250), (width, height - 250), 15)
 # vertical lines
-    pygame.draw.line(screen, New_Line_color, (width - 600, 0), (width - 600, height), 15)
-    pygame.draw.line(screen, New_Line_color, (width - 300, 0), (width - 300, height), 15)
+    pygame.draw.line(screen, Line_color, (width - 600, 0), (width - 600, height), 15)
+    pygame.draw.line(screen, Line_color, (width - 300, 0), (width - 300, height), 15)
 
 
 def Xo():
